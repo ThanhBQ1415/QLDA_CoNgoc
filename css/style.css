@@ -1,0 +1,188 @@
+html,body {
+    width: 100%;
+}
+
+.width100 {
+    width: 100%;
+}
+
+.width95 {
+    width: 95%;
+}
+
+.divTable {
+    margin-left: 15px;
+    margin-right: 30px;
+}
+
+.puzzleTable {
+    border-collapse: collapse;
+    font-size: 13px;
+    direction: ltr;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: 'Open Sans' !important;
+}
+
+table.puzzleTable tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+table.puzzleTable tbody tr {
+    display: table-row;
+}
+
+table.puzzleTable tbody tr td, 
+table.puzzleTable tbody tr th 
+{
+    display: table-cell;
+    border: 1px solid #ddd;
+    width: 220px;
+}
+
+table.puzzleTable tbody tr th {
+    font-weight: normal;
+    background: #0da3e2;
+    padding: 5px;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    width: 220px;
+}
+
+ol.puzzleOl {
+    padding: 0px;
+    min-height: 50px;
+    list-style-position: inside;   
+}
+
+ol.puzzleOl li {
+    padding: 0;
+    width: 100%;
+    margin: 0;
+    font-size: 11px;
+    cursor: move;
+}
+
+ul.lowerDragList {
+    list-style: none;
+}
+
+ul.lowerDragList li {
+    margin: 2px;
+    padding: 2px;
+    float: left;
+    color: white;
+    background-color: #5bc0de;
+}
+
+.rightPosition {
+    color: white !important;
+    background-color: #5cb85c;
+}
+
+.wrongPosition {
+    color: white !important;
+    background-color: #c9302c;
+}
+
+.wrongOrderPosition {
+    color: white !important;
+    background-color: #ec971f;
+}
+
+.btn {
+    color: white;
+    text-shadow: none;
+    margin: 6px;
+    min-height: 30px;
+    padding: 6px 8px 6px 8px;
+}
+
+.yellow { 
+    background-color: #ffb848;
+}
+
+.green {
+    background-color: #35aa47;
+}
+
+.lowerBlock {
+    margin: 4px;
+    padding-top: 20px;
+    clear: both; 
+}
+
+.questBody {
+	font-family: 'Comic Sans MS'
+}
+
+#divQuestion {
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    margin-left: -300px;
+    border: 2px solid black;
+    background-color: #f3f3f3;
+    padding: 8px;
+    text-align: left;
+}
+
+#divQuestion ul {
+    list-style: none;
+}
+
+#divExplanation {
+	color: darkblue;
+  	font-style: italic;
+  	margin-bottom: 16px;
+}
+
+#questionText {
+	font-weight: bold;
+}
+
+.invisible {
+    display: none;
+}
+
+#tblResult {
+    border: 1px solid black;
+}
+
+#tblResult td {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 6px;
+}
+
+#tblResult a:hover {
+    cursor: hand;
+}
+
+.rightAnswer {
+    color: white !important;
+    background-color: #35aa47;
+}
+
+.wrongAnswer {
+    color: black !important;
+    background-color: #ffb848;
+}
+
+#questionNumber {
+    float: right;
+}
+
+#ulQuestionnaires a {
+	margin: 10px;
+	font-size: xx-large;
+}
+
+#ulQuestionnaires a:hover {
+	cursor: hand
+}

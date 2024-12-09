@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>Questionnaire</title>
+    <link rel="stylesheet" href="css/style.css"/>
+	<script type="text/javascript" src="js/questdata.js"></script>
+	<script type="text/javascript" src="js/questengine.js"></script>
+</head>
+
+<body class="questBody" onload="loadQuestionnaireList()">
+    <div id="divQuestionnaires">
+        <ul id="ulQuestionnaires"></ul>
+    </div>
+    <div id="divQuestion" class="invisible">
+        <div id="questionText"></div>
+        <ul id="ulAnswers"></ul>
+        <div id="divExplanation"></div>
+        <div>
+            <button id="btnNext" onclick="clickNext()">Next</button>
+            <span id="questionNumber" style="float: right"></span>
+        </div>
+    </div>
+    <div id="divResult" class="width95 invisible">
+       <table id="tblResult" class="width100">
+            <thead>
+                <tr><th>Questions</th></tr>
+            </thead>
+            <tbody>
+            </tbody>
+       </table> 
+    </div>
+</body>
+</html>
