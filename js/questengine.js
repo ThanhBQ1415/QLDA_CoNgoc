@@ -21,13 +21,14 @@ function onQuestionnaireClick(ev) {
     var index = a.getAttribute("data-index");
     window.questData = window.questionnaires[index];
     loadData();
-	document.getElementById('divQuestionnaires').style.display = 'none';
+    document.getElementById('divQuestionnaires').style.display = 'none';
 }
 
 function loadData() {
     window.currentQuestionIndex = 0;
     randomizeQuestions();
     window.questResults = new Array(window.questData.questions.length);
+    window.showingAnswer = false;
     showCurrentQuestion();
 }
 
@@ -47,6 +48,10 @@ function currentQuestionIsLast() {
 function showQuestion(question) {
     document.getElementById("divQuestion").style.display = "block";
     document.getElementById("questionText").innerHTML = question.question;
+
+    var questionNumberDisplay = document.getElementById("questionNumberDisplay");
+    questionNumberDisplay.innerHTML = `Question ${window.currentQuestionIndex + 1}/${window.questData.questions.length}`;
+
     var ulAnswers = document.getElementById("ulAnswers");
     ulAnswers.innerHTML = "";
     for (var i = 0; i < question.answers.length; i++) {
@@ -89,7 +94,7 @@ function showQuestionWithAnswer(question, answerIndex) {
     var divExplanation = document.getElementById("divExplanation");
     divExplanation.innerHTML = question.explanation;
 
-	document.getElementById("questionNumber").style.display = 'none'
+    document.getElementById("questionNumber").style.display = 'none';
 
     var btnNext = document.getElementById("btnNext");
     btnNext.innerHTML = "Close";
@@ -99,13 +104,21 @@ function showQuestionWithAnswer(question, answerIndex) {
 function clickNext() {
     if (window.questCompleted) {
         document.getElementById("divQuestion").style.display = "none";
-    } if (currentQuestionIsLast()) {
-        document.getElementById("divQuestion").style.display = "none"; 
-        showResults();
-        window.questCompleted = true;
+    } else if (window.showingAnswer) {
+        if (currentQuestionIsLast()) {
+            document.getElementById("divQuestion").style.display = "none"; 
+            showResults();
+            window.questCompleted = true;
+        } else {
+            window.currentQuestionIndex++;
+            showCurrentQuestion();
+        }
+        window.showingAnswer = false;
     } else {
-        window.currentQuestionIndex++;
-        showCurrentQuestion();    
+        var currentQuestion = window.questData.questions[window.currentQuestionIndex];
+        var userAnswerIndex = parseInt(window.questResults[window.currentQuestionIndex]);
+        showQuestionWithAnswer(currentQuestion, userAnswerIndex);
+        window.showingAnswer = true;
     }
 }
 
@@ -137,7 +150,7 @@ function showResults() {
             td.classList.add("wrongAnswer");
         
         var a = document.createElement("a");
-		var questionWithoutTags = question.question.replace(/<\/?[a-z][a-z0-9]*[^<>]*>/ig, "");
+        var questionWithoutTags = question.question.replace(/<\/?[a-z][a-z0-9]*[^<>]*>/ig, "");
         var aText = document.createTextNode((i+1).toString() + ". " + questionWithoutTags);
         a.appendChild(aText);
         a.setAttribute("data-index", i);
